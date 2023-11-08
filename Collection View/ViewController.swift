@@ -13,7 +13,15 @@ class ViewController: UIViewController {
         Princess(name: "Jasmine", imageName: "jasmine"),
         Princess(name: "Rapunzel", imageName: "rapunzel"),
         Princess(name: "Cinderella", imageName: "cinderella"),
-        Princess(name: "Ariel", imageName: "ariel")
+        Princess(name: "Ariel", imageName: "ariel"),
+        Princess(name: "Belle", imageName: "belle"),
+        Princess(name: "Snow White", imageName: "snowwhite"),
+        Princess(name: "Aurora", imageName: "aurora"),
+        Princess(name: "Pocahontas", imageName: "pocahontas"),
+        Princess(name: "Mulan", imageName: "mulan"),
+        Princess(name: "Tiana", imageName: "tiana"),
+        Princess(name: "Merida", imageName: "merida"),
+        Princess(name: "Raya", imageName: "raya")
     ]
     
     let collectionView: UICollectionView = {
@@ -41,7 +49,10 @@ class ViewController: UIViewController {
     
     private func setCollectionView() {
         view.addSubview(collectionView)
-        collectionView.frame = view.bounds
+        collectionView.frame = CGRect(x: 0,
+                                      y: 100,
+                                      width: view.frame.size.width,
+                                      height: view.frame.size.height - 100)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
