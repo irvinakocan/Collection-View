@@ -9,6 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let princesses = [
+        Princess(name: "Jasmine", imageName: "jasmine"),
+        Princess(name: "Rapunzel", imageName: "rapunzel"),
+        Princess(name: "Cinderella", imageName: "cinderella"),
+        Princess(name: "Ariel", imageName: "ariel")
+    ]
+    
     let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -37,20 +44,21 @@ class ViewController: UIViewController {
         collectionView.frame = view.bounds
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .blue
     }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        return princesses.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let princess = princesses[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+        cell.configure(with: princess)
         return cell
     }
 }
